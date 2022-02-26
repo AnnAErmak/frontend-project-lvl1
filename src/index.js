@@ -7,6 +7,17 @@ export function helloGamer(){
     return gamerName
 }
 
+export function startRounds(func, name){
+    let counter = 0
+    for (let i = 0; i < 3; i++){
+        if(func() === 'stop'){
+            stopGame(name)
+            break
+        }
+        counter ++
+    }
+    if (counter === 3) console.log(`Congratulations, ${name}!`)
+}
 export function stopGame(name){
     console.log(`Let\'s try again, ${name}`)
 }

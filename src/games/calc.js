@@ -1,19 +1,20 @@
-import {helloGamer, stopGame} from "../index.js";
+import {helloGamer, startRounds} from "../index.js";
 import readlineSync from "readline-sync";
 
 
 export function startGameCalc(){
-    let counter = 0
+    // let counter = 0
     const gamerName = helloGamer()
     console.log('What is the result of the expression?')
-    for (let i = 0; i < 3; i++){
-        if(askQuestion() === 'stop'){
-            stopGame(gamerName)
-            break
-        }
-        counter ++
-    }
-    if (counter === 3) console.log(`Congratulations, ${gamerName}!`)
+    startRounds(askQuestion, gamerName)
+    // for (let i = 0; i < 3; i++){
+    //     if(askQuestion() === 'stop'){
+    //         stopGame(gamerName)
+    //         break
+    //     }
+    //     counter ++
+    // }
+    // if (counter === 3) console.log(`Congratulations, ${gamerName}!`)
 }
 function askQuestion(){
     const firstNumber = Math.floor(Math.random() * 10)

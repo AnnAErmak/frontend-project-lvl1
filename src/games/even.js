@@ -1,19 +1,20 @@
-import {helloGamer, stopGame} from "../index.js";
+import {helloGamer, startRounds} from "../index.js";
 import readlineSync from "readline-sync";
 
 
 export function startGameEven(){
-    let counter = 0
+    // let counter = 0
     const gamerName = helloGamer()
     console.log('Answer "yes" if the number is even, otherwise answer "no".')
-    for (let i = 0; i < 3; i++){
-        if(askQuestion() === 'stop'){
-            stopGame(gamerName)
-            break
-        }
-        counter ++
-    }
-    if (counter === 3) console.log(`Congratulations, ${gamerName}!`)
+    startRounds(askQuestion, gamerName)
+    // for (let i = 0; i < 3; i++){
+    //     if(askQuestion() === 'stop'){
+    //         stopGame(gamerName)
+    //         break
+    //     }
+    //     counter ++
+    // }
+    // if (counter === 3) console.log(`Congratulations, ${gamerName}!`)
 }
 
 function askQuestion(){
