@@ -1,8 +1,13 @@
 name: linter
 on: push
 jobs:
-  my-job:
+  linter:
     runs-on: ubuntu-latest
     steps:
-      - name: check-linter
-        run: make lint
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: true
+      - run: make lint
