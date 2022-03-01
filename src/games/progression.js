@@ -1,4 +1,4 @@
-import {helloGamer, startRounds} from "../index.js";
+import { helloGamer, startRounds } from "../index.js";
 import readlineSync from "readline-sync";
 
 

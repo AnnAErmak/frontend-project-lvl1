@@ -1,51 +1,36 @@
-import {helloGamer, startRounds} from "../index.js";
-import readlineSync from "readline-sync";
+import startRounds from '../index.js';
+import { randomValue } from '../utils/utils.js';
 
-
-export function startGameCalc(){
-    // let counter = 0
-    const gamerName = helloGamer()
-    console.log('What is the result of the expression?')
-    startRounds(askQuestion, gamerName)
-    // for (let i = 0; i < 3; i++){
-    //     if(askQuestion() === 'stop'){
-    //         stopGame(gamerName)
-    //         break
-    //     }
-    //     counter ++
-    // }
-    // if (counter === 3) console.log(`Congratulations, ${gamerName}!`)
+function calc(firstNumber, randomOperator, secondNumber) {
+  let result = 0;
+  switch (randomOperator) {
+    case '+':
+      result = firstNumber + secondNumber;
+      break;
+    case '-':
+      result = firstNumber - secondNumber;
+      break;
+    case '*':
+      result = firstNumber * secondNumber;
+      break;
+    default:
+      break;
+  }
+  return String(result);
 }
-function askQuestion(){
-    const firstNumber = Math.floor(Math.random() * 10)
-    const secondNumber = Math.floor(Math.random() * 10)
-    const arrOperator = ['+', '-', '*']
-    const randomIndex = Math.floor(Math.random() * arrOperator.length )
-    const randomOperator = arrOperator[randomIndex]
-    let result = 0
+function askQuestion() {
+  const firstNumber = randomValue(10);
+  const secondNumber = randomValue(10);
+  const arrOperator = ['+', '-', '*'];
+  const randomIndex = randomValue(3);
+  const randomOperator = arrOperator[randomIndex];
+  const question = `Question: ${firstNumber} ${randomOperator} ${secondNumber}`;
+  const correctAnswer = calc(firstNumber, randomOperator, secondNumber);
+  return [question, correctAnswer];
+}
 
-    console.log(`Question: ${firstNumber} ${randomOperator} ${secondNumber}`)
+export default function startGameCalc() {
+  const task = 'What is the result of the expression?';
 
-    switch (randomIndex){
-        case 0:
-            result = firstNumber + secondNumber
-            break
-        case 1:
-            result = firstNumber - secondNumber
-            break
-        case 2:
-            result = firstNumber * secondNumber
-            break
-        default:
-            break
-    }
-    const answer = readlineSync.question('You answer: ');
-    if (+answer === result){
-        console.log('Correct!')
-    }else{
-        console.log(`\'${answer}\' is wrong answer ;(. Correct answer was \'${result}\'.`)
-        return 'stop'
-    }
-
-
+  startRounds(task, askQuestion);
 }

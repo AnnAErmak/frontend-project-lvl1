@@ -1,23 +1,21 @@
-import readlineSync from "readline-sync";
+import readlineSync from 'readline-sync';
 
-export function helloGamer(){
-    console.log('Welcome to the Brain Games!')
-    let gamerName = readlineSync.question('May I have your name? ') || 'аноним'
-    console.log(`Hello, ${gamerName}!`)
-    return gamerName
-}
-
-export function startRounds(func, name){
-    let counter = 0
-    for (let i = 0; i < 3; i++){
-        if(func() === 'stop'){
-            stopGame(name)
-            break
-        }
-        counter ++
+export default function startRounds(task, getDataGame) {
+  console.log('Welcome to the Brain Games!');
+  const gamerName = readlineSync.question('May I have your name? ') || 'аноним';
+  console.log(`Hello, ${gamerName}!`);
+  console.log(task);
+  for (let i = 0; i < 3; i++) {
+    const [question, correctAnswer] = getDataGame();
+    console.log(question);
+    const answer = readlineSync.question('You answer: ');
+    if (answer === correctAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`\'${answer}\' is wrong answer ;(. Correct answer was \'${correctAnswer}\'.`);
+      console.log(`Let's try again, ${gamerName}!`);
+      return;
     }
-    if (counter === 3) console.log(`Congratulations, ${name}!`)
-}
-export function stopGame(name){
-    console.log(`Let\'s try again, ${name}`)
+  }
+  console.log(`Congratulations, ${gamerName}!`);
 }
