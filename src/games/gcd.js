@@ -1,43 +1,29 @@
-import {helloGamer, startRounds} from "../index.js";
-import readlineSync from "readline-sync";
+import startRounds from '../index.js';
+import { randomValue } from '../utils/utils.js';
 
-export function startGameGcd(){
-    // let counter = 0
-    const gamerName = helloGamer()
-    console.log('Find the greatest common divisor of given numbers.')
-    startRounds(askQuestion, gamerName)
-    // for (let i = 0; i < 3; i++){
-    //     if(askQuestion() === 'stop'){
-    //         stopGame(gamerName)
-    //         break
-    //     }
-    //     counter ++
-    // }
-    // if (counter === 3) console.log(`Congratulations, ${gamerName}!`)
+function nod(fir, sec) {
+  let first = fir;
+  let second = sec;
+  while (first !== second) {
+    if (first > second) {
+      first -= second;
+    } else {
+      second -= first;
+    }
+  }
+  return String(first);
 }
 
-function askQuestion(){
-    const firstNumber = Math.floor(Math.random() * 100)
-    const secondNumber = Math.floor(Math.random() * 100)
-    console.log(`Question: ${firstNumber} ${secondNumber}`)
-    const result = nod(firstNumber, secondNumber)
-    const answer = readlineSync.question('You answer: ');
-    if (+answer === result){
-        console.log('Correct!')
-    }else{
-        console.log(`\'${answer}\' is wrong answer ;(. Correct answer was \'${result}\'.`)
-        return 'stop'
-    }
+function askQuestion() {
+  const firstNumber = randomValue(100);
+  const secondNumber = randomValue(100);
+  const question = `Question: ${firstNumber} ${secondNumber}`;
+  const correctAnswer = nod(firstNumber, secondNumber);
+  return [question, correctAnswer];
 }
 
-function nod(first, second) {
-    while (first !== second) {
-        if (first > second) {
-            first = first - second;
-        }
-        else {
-            second = second - first;
-        }
-    }
-    return  first;
+export default function startGameGcd() {
+  const task = 'Find the greatest common divisor of given numbers.';
+
+  startRounds(task, askQuestion);
 }
