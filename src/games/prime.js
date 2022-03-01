@@ -1,4 +1,5 @@
 import startRounds from '../index.js';
+import randomValue from '../utils/utils.js';
 
 function isPrime(number) {
   if (number < 1) return true;
@@ -11,7 +12,7 @@ function isPrime(number) {
 }
 
 function askQuestion() {
-  const randomNumber = Math.floor(Math.random() * 20);
+  const randomNumber = randomValue(20);
   const question = `Question: ${randomNumber}`;
   const correctAnswer = (isPrime(randomNumber)) ? 'yes' : 'no';
 
