@@ -1,5 +1,5 @@
 import startRounds from '../index.js';
-import { randomValue } from '../utils/utils.js';
+import randomValue from '../utils/utils.js';
 
 function nod(fir, sec) {
   let first = fir;
