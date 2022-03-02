@@ -15,8 +15,8 @@ function nod(fir, sec) {
 }
 
 function askQuestion() {
-  const firstNumber = randomValue(100);
-  const secondNumber = randomValue(100);
+  const firstNumber = randomValue(10);
+  const secondNumber = randomValue(10);
   const question = `Question: ${firstNumber} ${secondNumber}`;
   const correctAnswer = nod(firstNumber, secondNumber);
   return [question, correctAnswer];
