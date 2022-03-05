@@ -11,16 +11,16 @@ function isPrime(number) {
   return true;
 }
 
-function askQuestion() {
+function generateRound() {
   const randomNumber = randomValue(0, 20);
   const question = `Question: ${randomNumber}`;
-  const correctAnswer = (isPrime(randomNumber)) ? 'yes' : 'no';
+  const answer = (isPrime(randomNumber)) ? 'yes' : 'no';
 
-  return [question, correctAnswer];
+  return [question, answer];
 }
 
 export default function startGamePrime() {
   const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  startRounds(task, askQuestion);
+  startRounds(task, generateRound);
 }

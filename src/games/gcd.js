@@ -11,19 +11,19 @@ function nod(fir, sec) {
       second -= first;
     }
   }
-  return String(first);
+  return first;
 }
 
-function askQuestion() {
-  const firstNumber = randomValue(0, 100);
-  const secondNumber = randomValue(0, 100);
+function generateRound() {
+  const firstNumber = randomValue(10, 100);
+  const secondNumber = randomValue(10, 100);
   const question = `Question: ${firstNumber} ${secondNumber}`;
-  const correctAnswer = nod(firstNumber, secondNumber);
-  return [question, correctAnswer];
+  const answer = nod(firstNumber, secondNumber);
+  return [question, String(answer)];
 }
 
 export default function startGameGcd() {
   const task = 'Find the greatest common divisor of given numbers.';
 
-  startRounds(task, askQuestion);
+  startRounds(task, generateRound);
 }

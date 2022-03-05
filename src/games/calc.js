@@ -14,23 +14,23 @@ function calc(firstNumber, randomOperator, secondNumber) {
       result = firstNumber * secondNumber;
       break;
     default:
-      break;
+      throw new Error(`Unknown operator received: '${randomOperator}'!`);
   }
-  return String(result);
+  return result;
 }
-function askQuestion() {
-  const firstNumber = randomValue(1, 10);
-  const secondNumber = randomValue(1, 10);
+function generateRound() {
+  const num1 = randomValue(1, 10);
+  const num2 = randomValue(1, 10);
   const operations = ['+', '-', '*'];
-  const randomIndex = randomValue(0, 2);
-  const randomOperator = operations[randomIndex];
-  const question = `Question: ${firstNumber} ${randomOperator} ${secondNumber}`;
-  const correctAnswer = calc(firstNumber, randomOperator, secondNumber);
-  return [question, correctAnswer];
+  const operatorIndex = randomValue(0, 2);
+  const operator = operations[operatorIndex];
+  const question = `Question: ${num1} ${operator} ${num2}`;
+  const answer = calc(num1, operator, num2);
+  return [question, String(answer)];
 }
 
 export default function startGameCalc() {
   const task = 'What is the result of the expression?';
 
-  startRounds(task, askQuestion);
+  startRounds(task, generateRound);
 }
