@@ -41,10 +41,10 @@ $ brain-calc
 
 [![asciicast](https://asciinema.org/a/LYVHtry8JM1H1yTtzcGaDlXds.svg)](https://asciinema.org/a/LYVHtry8JM1H1yTtzcGaDlXds)
 
-#### Brain Game GCL
+#### Brain Game GCD
 
 ```sh
-$ brain-gcl
+$ brain-gcd
 ```
 
 [![asciicast](https://asciinema.org/a/ufduLuUftSu3QMaklltIV3Gqf.svg)](https://asciinema.org/a/ufduLuUftSu3QMaklltIV3Gqf)
