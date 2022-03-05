@@ -1,20 +1,20 @@
 import startRounds from '../index.js';
 import getRandomInt from '../utils.js';
 
-function calc(firstNumber, randomOperator, secondNumber) {
+function calc(num1, operator, num2) {
   let result = 0;
-  switch (randomOperator) {
+  switch (operator) {
     case '+':
-      result = firstNumber + secondNumber;
+      result = num1 + num2;
       break;
     case '-':
-      result = firstNumber - secondNumber;
+      result = num1 - num2;
       break;
     case '*':
-      result = firstNumber * secondNumber;
+      result = num1 * num2;
       break;
     default:
-      throw new Error(`Unknown operator received: '${randomOperator}'!`);
+      throw new Error(`Unknown operator received: '${operator}'!`);
   }
   return result;
 }
