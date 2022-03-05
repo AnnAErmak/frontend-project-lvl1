@@ -1,5 +1,5 @@
 import startRounds from '../index.js';
-import randomValue from '../utils/utils.js';
+import randomValue from '../utils.js';
 
 function nod(fir, sec) {
   let first = fir;
@@ -15,8 +15,8 @@ function nod(fir, sec) {
 }
 
 function askQuestion() {
-  const firstNumber = randomValue(100);
-  const secondNumber = randomValue(100);
+  const firstNumber = randomValue(0, 100);
+  const secondNumber = randomValue(0, 100);
   const question = `Question: ${firstNumber} ${secondNumber}`;
   const correctAnswer = nod(firstNumber, secondNumber);
   return [question, correctAnswer];

@@ -1,16 +1,14 @@
 import startRounds from '../index.js';
-import randomValue from '../utils/utils.js';
+import randomValue from '../utils.js';
 
+const rangeLength = 10;
 function askQuestion() {
   const prog = [];
-  const hiddenInx = randomValue(10);
-  let firstNumber = randomValue(20);
-  let step = 0;
-  do {
-    step = randomValue(10);
-  } while (step < 2);
+  const hiddenInx = randomValue(0, 10);
+  let firstNumber = randomValue(0, 20);
+  const step = randomValue(3, 10);
 
-  for (let i = 0; i <= 10; i += 1) {
+  for (let i = 0; i <= rangeLength; i += 1) {
     prog.push(firstNumber);
     firstNumber += step;
   }

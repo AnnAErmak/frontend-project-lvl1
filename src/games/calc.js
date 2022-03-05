@@ -1,5 +1,5 @@
 import startRounds from '../index.js';
-import randomValue from '../utils/utils.js';
+import randomValue from '../utils.js';
 
 function calc(firstNumber, randomOperator, secondNumber) {
   let result = 0;
@@ -19,11 +19,11 @@ function calc(firstNumber, randomOperator, secondNumber) {
   return String(result);
 }
 function askQuestion() {
-  const firstNumber = randomValue(10);
-  const secondNumber = randomValue(10);
-  const arrOperator = ['+', '-', '*'];
-  const randomIndex = randomValue(3);
-  const randomOperator = arrOperator[randomIndex];
+  const firstNumber = randomValue(1, 10);
+  const secondNumber = randomValue(1, 10);
+  const operations = ['+', '-', '*'];
+  const randomIndex = randomValue(0, 2);
+  const randomOperator = operations[randomIndex];
   const question = `Question: ${firstNumber} ${randomOperator} ${secondNumber}`;
   const correctAnswer = calc(firstNumber, randomOperator, secondNumber);
   return [question, correctAnswer];

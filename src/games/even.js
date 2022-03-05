@@ -1,11 +1,11 @@
 import startRounds from '../index.js';
-import randomValue from '../utils/utils.js';
+import randomValue from '../utils.js';
 
 function isEven(number) {
   return !(number % 2);
 }
 function askQuestion() {
-  const randNumber = randomValue(10);
+  const randNumber = randomValue(0, 10);
   const question = `Question: ${randNumber}`;
   const correctAnswer = (isEven(randNumber)) ? 'yes' : 'no';
   return [question, correctAnswer];
