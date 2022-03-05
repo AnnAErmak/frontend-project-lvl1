@@ -12,7 +12,7 @@ function isPrime(number) {
 }
 
 function generateRound() {
-  const randomNumber = randomValue(0, 20);
+  const randomNumber = randomValue(2, 20);
   const question = `Question: ${randomNumber}`;
   const answer = (isPrime(randomNumber)) ? 'yes' : 'no';
 

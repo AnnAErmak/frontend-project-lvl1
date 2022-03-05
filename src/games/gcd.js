@@ -1,9 +1,9 @@
 import startRounds from '../index.js';
 import randomValue from '../utils.js';
 
-function nod(fir, sec) {
-  let first = fir;
-  let second = sec;
+function nod(num1, num2) {
+  let first = num1;
+  let second = num2;
   while (first !== second) {
     if (first > second) {
       first -= second;
@@ -15,10 +15,10 @@ function nod(fir, sec) {
 }
 
 function generateRound() {
-  const firstNumber = randomValue(10, 100);
-  const secondNumber = randomValue(10, 100);
-  const question = `Question: ${firstNumber} ${secondNumber}`;
-  const answer = nod(firstNumber, secondNumber);
+  const num1 = randomValue(10, 100);
+  const num2 = randomValue(10, 100);
+  const question = `Question: ${num1} ${num2}`;
+  const answer = nod(num1, num2);
   return [question, String(answer)];
 }
 
