@@ -1,12 +1,12 @@
 import startRounds from '../index.js';
-import randomValue from '../utils.js';
+import getRandomInt from '../utils.js';
 
 const rangeLength = 10;
 
 function getProgression() {
   const progression = [];
-  let firstNumber = randomValue(0, 20);
-  const step = randomValue(3, 10);
+  let firstNumber = getRandomInt(0, 20);
+  const step = getRandomInt(3, 10);
 
   for (let i = 0; i <= rangeLength; i += 1) {
     progression.push(firstNumber);
@@ -15,7 +15,7 @@ function getProgression() {
   return progression;
 }
 function generateRound() {
-  const hiddenIndex = randomValue(0, 10);
+  const hiddenIndex = getRandomInt(0, 10);
   const progression = getProgression();
   const answer = progression[hiddenIndex];
   progression[hiddenIndex] = '..';
